@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>codesigner</title>
-    <link rel="stylesheet" href="index.css">
+    <title>codesigner.kr</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="02.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
@@ -18,69 +19,126 @@
                 <a href="#">작품리스트</a>
                 <div></div>
                 <ul>
-                    <li><a href="04.html">UI/UX</a></li>
-                    <li><a href="04.html">HTML</a></li>
-                    <li><a href="04.html">JAVA<br>SCRIPT</a></li>
-                    <li><a href="04.html">CSS</a></li>
-                    <li><a href="04.html">VIDEO</a></li>
-                    <li><a href="04.html">PHOTO<br>SHOP</a></li>
-                    <li><a href="04.html">ILLUST<br>LATION</a></li>
-                    <li><a href="04.html">PREMERE<br>PRO</a></li>
-                    <li><a href="04.html">AFTER<br>EFFECT</a></li>
-                    <li><a href="04.html">CINEMA<br>4D</a></li>
+                    <li><a href="#">UI/UX</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">JAVA<br>SCRIPT</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">VIDEO</a></li>
+                    <li><a href="#">PHOTO<br>SHOP</a></li>
+                    <li><a href="#">ILLUST<br>LATION</a></li>
+                    <li><a href="#">PREMERE<br>PRO</a></li>
+                    <li><a href="#">AFTER<br>EFFECT</a></li>
+                    <li><a href="#">CINEMA<br>4D</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">ABOUT ME</a>
                 <div></div>
                 <ul>
-                    <li><a href="03.html">ABOUT ME</a></li>
-                    <li><a href="03.html">SKILLS</a></li>
-                    <li><a href="03.html">CAREER</a></li>
-                    <li><a href="03.html">EDU<br>CATION</a></li>
+                    <li><a href="#">ABOUT ME</a></li>
+                    <li><a href="#">SKILLS</a></li>
+                    <li><a href="#">CAREER</a></li>
+                    <li><a href="#">EDUCATION</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
+    <div id="li">
+    <h1><a class="logo" href="index.html"></a>유화은의 PORTPOLIO SITE 입니다.</h1>
+        <div>
+            <form action="https://www.codesigner.kr" method="get">
+                <fieldset>
+                    <legend class="screen_out">검색창</legend>
+                    <input type="text" name="search" id="search" placeholder="코디자이너의 어떤점이 궁금하세요?">
+                    <button>검색</button>
+                </fieldset>
+            </form>
+            <h2 class="screen_out">검색키워드</h2>
+            <ul id="keyword">
+                <li><a href="02.html">통합검색</a></li>
+                <li><a href="03.html">INTRODUCE ME</a></li>
+                <li><a href="03.html">SKILLS</a></li>
+                <li><a href="04.html">UX/UI</a></li>
+                <li><a href="04.html">PHOTOSHOP</a></li>
+                <li><a href="04.html">ILLUSTLATION</a></li>
+            </ul>
+        </div>
+    </div>
 </header>
 <main>
-<h1><a href="index/html">유화은의 portpolio site입니다.</a></h1>
-    <fieldset class="search">
-        <legend class="screen_out">검색창</legend>
-        <input type="text" name="search" id="search" placeholder="코드디자이너에게 무엇이든 물어보세요!">
-    </fieldset>
-<h2 class="screen_out">검색키워드</h2>
-    <ul id="keyword">
-        <li><a href="02.html">통합검색</a></li>
-        <li><a href="04.html">UI/UX</a></li>
-        <li><a href="04.html">GRAPHICS</a></li>
-        <li><a href="#" class="c_btn">CONTACT</a></li>
-            <section id="contact">
-                <div class="c_modal">
-                    <div class="container">
-                    <span class="close">&times;</span>
-                    <h3>제게 하고 싶은 이야기가 있으신가요?</h3>
-                        <fieldset class="fmail">
-                            <legend class="screen_out">메일양식</legend>
-                            <label for="title" class="screen_out">제목</label>
-                            <input type="text" placeholder="성함을 알려주세요." id="title" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
-                            <label for="email" class="screen_out">받을 이메일</label>
-                            <input type="text" placeholder="연락처를 남겨주세요(ex.메일, 전화번호 등)." id="email" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
-                            <label for="msg" class="screen_out">내용</label>
-                            <textarea placeholder="답변 받고 싶은 연락처를 메세지에 같이 남겨주시면 지체없이 답변드리도록 하겠습니다." id="msg" class="form_base" required></textarea><span>*5자 이상 입력하세요</span><i class="fa fa-check" aria-hidden="true"></i>
-                            <button class="form_base" id="send_bt">보내기</button>
-                        </fieldset>
-                    </div>
-                </div>
-            </section>
+<div class="cont1">
+    <h2><a href="03.html">ABOUT ME</a></h2>
+    <ul>
+        <li><p>저에 대해 궁금하시다면 이쪽을 클릭해주세요.</p></li>
     </ul>
+</div>
+<div class="cont2">
+    <h2><i class="fa fa-file-image-o" aria-hidden="true"></i><a href="04.html">포트폴리오 작품</a></h2>
+    <div id="image">
+        <h3 class="screen_out">포트폴리오 카테고리</h3>
+        <div id="accordion">
+            <input type="checkbox" id="cont">
+            <label for="cont"><span class="screen_out">컨텐츠 이름</span>
+                <em><i class="fa fa-angle-down" aria-hidden="true"></i>
+                <i class="fa fa-angle-up" aria-hidden="true"></i></em></label>
+            <div id="category">
+                <h3 class="screen_out">포트폴리오 카테고리</h3>
+                <ul>
+                    <li><a href="04.html">전체 작품</a></li>
+                    <li><a href="04.html">ui/ux</a></li>
+                    <li><a href="04.html">JAVASCRIPT</a></li>
+                    <li><a href="04.html">PHOTOSHOP</a></li>
+                    <li><a href="04.html">ILLUSTLATION</a></li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="screen_out">작품 이미지</h3>
+        <ul id="list">
+            <li><a href="#"><span>작품1 img</span></a></li>
+            <li><a href="#"><span>작품2 img</span></a></li>
+            <li><a href="#"><span>작품3 img</span></a></li>
+            <li><a href="#"><span>작품4 img</span></a></li>
+            <li><a href="#"><span>작품5 img</span></a></li>
+            <li><a href="#"><span>작품6 img</span></a></li>
+        </ul>
+        <ul>
+            <hr><li><a href="04.html">모두 보기</a></li>
+        </ul>
+    </div>
+</div>
+<div class="cont3">
+    <h2><a class="btn" href="#">CONTACT ME</a></h2>
+    <section id="contact">
+    <div class="modal">
+        <div class="container">
+        <span class="close">&times;</span>  
+        <h3>제게 하고 싶은 이야기가 있으신가요?</h3>
+        <fieldset>
+            <legend class="screen_out">메일양식</legend>
+            <label for="title" class="screen_out">제목</label>
+            <input type="text" placeholder="성함을 알려주세요." id="title" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
+            <label for="email" class="screen_out">받을 이메일</label>
+            <input type="text" placeholder="연락처를 남겨주세요(ex.메일, 전화번호 등)." id="email" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
+            <label for="msg" class="screen_out">내용</label>
+            <textarea placeholder="답변 받고 싶은 연락처를 메세지에 같이 남겨주시면 지체없이 답변드리도록 하겠습니다." id="msg" class="form_base" required></textarea><span>*5자 이상 입력하세요</span><i class="fa fa-check" aria-hidden="true"></i>
+            <button class="form_base" id="send_bt">보내기</button>
+        </fieldset>
+        </div>
+    </div>
+    <ul>
+        <li><p>제게 하실 이야기가 있으신가요? 이쪽으로 남겨주세요!</p></li>
+    </ul>
+    </section>
+</div>
 </main>
 <footer>
     <h2 class="screen_out">사이트 정보</h2>
     <ul>
         <li>
-            <p><a class="btn" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>이력서 확인하기</a></p>
-            <div class="modal">
+            <p><a class="f_btn" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>이력서 확인하기</a></p>
+            <p><span>코디자이너 img</span></p>
+            <address>&copy; BY codesigner</address>
+            <div class="f_modal">
                 <div class="container">
                 <h3>INTRODUCE coDesigner</h2>
                     <ul class="tab_title">
@@ -176,9 +234,9 @@
                 </div>
             </div>
         </li>
-    </ul>    
+    </ul>  
 </footer>
-</body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="index.js"></script>
+<script src="02.js"></script>
+</body>
 </html>

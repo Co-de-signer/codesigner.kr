@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 콘텐츠 페이지 응용</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            padding:100px
+        }
+        #stage {
+            perspective: 2600px;
+            margin-top:60px;
+            width:100%;
+            padding:50px;
+        }
+        #stage ul {
+            position: relative;
+            transform-style:preserve-3d;
+            transition: ease all .3s;
+            width:400px;
+            height:300px;
+            margin:auto;
+            transform-origin: 50% 50% -275px;
+        }
+        #stage>ul>li {
+            background: rgba(255, 0, 0, .4);
+            width:400px;
+            height:300px;
+            position:absolute;
+            font-size:20px;
+            line-height:500px;
+            text-align: center;
+            font-weight: bolder;
+            color:#fff;
+            text-shadow:1px 2px 2px #000;
+            filter: brightness(0.5);
+        }
+        #stage ul li:nth-child(1) {
+            background: center / cover url(img/3d_1.png);
+        }
+        #stage ul li:nth-child(2) {
+            transform:translate3d(262px, 0, -190px) rotateY(72deg);
+            background: center / cover url(img/3d_2.jpeg);
+        }
+        #stage ul li:nth-child(3) {
+            transform:translate3d(163px, 0, -497px) rotateY(144deg);
+            background: center / cover url(img/3d_3.jpeg);
+        }
+        #stage ul li:nth-child(4) {
+            transform:translate3d(-161px, 0, -497px) rotateY(-144deg);
+            background: center / cover url(img/3d_4.png);
+        }
+        #stage ul li:nth-child(5) {
+            transform:translate3d(-262px, 0, -193px) rotateY(-72deg);
+            background: center / cover url(img/3d_5.jpg);
+        }
+        #page {
+            display: flex;
+            margin:auto;
+            justify-content: center;
+        }
+        #page label {
+            border:1px solid #ccc;
+            width:16px;
+            height:16px;
+            border-radius: 50%;
+            margin:10px;
+            transition: ease all .3s;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        input {display:none;}
+        input[value="1"]:checked~#stage ul {transform: rotateY(0);}
+        input[value="2"]:checked~#stage ul {transform: rotateY(-72deg);}
+        input[value="3"]:checked~#stage ul {transform: rotateY(-144deg);}
+        input[value="4"]:checked~#stage ul {transform: rotateY(-216deg);}
+        input[value="5"]:checked~#stage ul {transform: rotateY(-288deg);}
+
+        input[value="1"]:checked~#stage li:nth-child(1),
+        input[value="2"]:checked~#stage li:nth-child(2),
+        input[value="3"]:checked~#stage li:nth-child(3),
+        input[value="4"]:checked~#stage li:nth-child(4),
+        input[value="5"]:checked~#stage li:nth-child(5){filter:brightness(1);}
+
+        input[value="1"]:checked~#page label:nth-child(1),
+        input[value="2"]:checked~#page label:nth-child(2),
+        input[value="3"]:checked~#page label:nth-child(3),
+        input[value="4"]:checked~#page label:nth-child(4),
+        input[value="5"]:checked~#page label:nth-child(5)
+        {border:1px solid #666;background-color: #666;}
+    </style>
+</head>
+<body>
+<h1>3D 콘텐츠 페이지 활용</h1>
+<input type="radio" name="menu" value="1" id="menu1">
+<input type="radio" name="menu" value="2" id="menu2">
+<input type="radio" name="menu" value="3" id="menu3">
+<input type="radio" name="menu" value="4" id="menu4">
+<input type="radio" name="menu" value="5" id="menu5">
+    <div id="stage">
+        <ul>
+            <li>KOREA</li>
+            <li>USA</li>
+            <li>JAPAN</li>
+            <li>ENGLAND</li>
+            <li>AUSTRALIA</li>
+        </ul>
+    </div>
+    <div id="page">
+        <label for="menu1"></label>
+        <label for="menu2"></label>
+        <label for="menu3"></label>
+        <label for="menu4"></label>
+        <label for="menu5"></label>
+    </div>
+</body>
+</html>

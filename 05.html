@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box;}
+.screen_out {display:none;}
+body {font-family:'Noto Sans KR', sans-serif;min-width:410px;}
+fieldset {border:none;}
+h2 {text-align: right;padding:40px 0;font-size: 50px;font-weight: 800;}
+#contact {max-width: 750px; margin:auto;overflow:hidden;position: relative;}
+#contact p {font-size:16px; font-weight: 400;color:#9c9c9c;}
+#contact p:first-child {font-size:36px; font-weight:900; color:#292929; line-height: 130%;text-align: left;}
+#contact p+p {line-height: 150%;margin-top:30px;text-align: left;}
+#contact>div {padding-top:70px;}
+#contact>div>div,#contact fieldset {min-width:300px;}
+#contact>div>div {min-height:150px;padding-bottom:60px;margin:auto;width:340px;}
+#contact .form_base {border:none;;border-radius: 6px; background:#f3f3f3;height:56px; width:100%; padding:0 20px 5px;line-height: 100%;display:block;font-size:18px;margin-bottom:15px; font-family: 'Noto Sans KR',sans-serif;font-weight:600;outline:none;}
+#contact .form_base:focus {border-color:#b1b1b1;}
+#contact .form_base.alert {border-color:#ef7f7f;}
+#contact .form_base.alert+span {color:#ef7f7f;font:12px/12px dotum,돋움,sans-serif; position: absolute;margin:-40px 0 0 20px;}
+#contact ::placeholder {font-family:'Noto Sans KR',sans-serif; font-weight:300;color:#797979;font-size:14px}
+#contact textarea.form_base {padding-top:18px;min-height:200px;}
+#contact input[name=answer] {display:none;}
+#contact .fa {font-size:22px;color:#d2d2d2; cursor: pointer;margin-right:10px;}
+#contact .fa.fa-envelope-o {margin-left:160px;}
+#contact .fa.fa-comment-o {margin:-3px 2px;position: absolute;}
+#contact .fa.fa-check {position: absolute;right:10px;color:#5ab601;margin-top:-50px;display:none;}
+#contact input:checked+.fa {color:#333;}
+#contact #msg~p {padding:5px 20px;}
+#contact #msg~div {position: absolute;margin:-25px 0 0 130px;}
+#contact button.form_base {background-color:#3a383b;width:250px;height:56px;color:rgb(240, 240, 240);text-transform: uppercase;font-family:'Noto Sans KR'; font-size:15px; cursor: pointer;margin:50px auto;}
+#contact .form_base+span {display: none;}
+    </style>
+</head>
+<body>
+<h1 class="screen_out">폼메일</h1>
+<section id="contact">
+    <h3>Contact</h3>
+    <p>I think we’re all like the moon<br> we have that side where everyone sees<br> & other side everyone can’t sees is my potential</p>
+    <p>답장 받으실 <span>연락처</span>와 <span>메세지</span> 남겨주시면 연락 드리겠습니다.</p>
+    <fieldset>
+        <legend class="screen_out">메일양식</legend>
+        <label for="title" class="screen_out">제목</label>
+        <input type="text" placeholder="성함을 알려주세요." id="title" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
+        <label for="email" class="screen_out">받을 이메일</label>
+        <input type="text" placeholder="연락처를 남겨주세요(ex.메일, 전화번호 등)." id="email" class="form_base"><i class="fa fa-check" aria-hidden="true"></i>
+        <label for="msg" class="screen_out">내용</label>
+        <textarea placeholder="저에게 하고 싶은 이야기가 있으신가요?" id="msg" class="form_base" required></textarea><span>*5자 이상 입력하세요</span><i class="fa fa-check" aria-hidden="true"></i>
+        <button class="form_base" id="send_bt">Send</button>
+    </fieldset>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var chk="";
+    $("#send_bt").click(function(){
+        var chk1 = $("#title").val().length >= 2;
+        var chk2 = $("#email").val().length >= 2;
+        var chk3 = $("#msg").val().length >= 5;
+        if(chk1 && chk2 && chk3) {
+            email();
+        } else {
+            if(!chk1) {
+                $("#title").addClass("alert").focus();
+            } else if(!chk2) {
+                $("#email").addClass("alert").focus();
+            } else if(!chk3) {
+                $("#msg").addClass("alert").focus();
+            }
+        }
+    });
+    function email() {
+        $("input[name='answer']").each(function(index, item){
+            if(chk != "") {
+                var n = ", ";
+            } else { 
+                var n = "";
+            }
+            if($(this).is(":checked") == true) {
+                chk += n+$(this).val();
+            }
+        });
+        var param = {
+            title: $("#title").val(),
+            email: $("#email").val(),
+            msg: $("#msg").val()
+        };
+        // alert(param);
+        $.ajax({
+            url: 'fmail.php',
+            type: "POST",
+            async: true,
+            dataType: "json",
+            data: param,
+            success: function(data) {
+                if(data.result == "true") {
+                    alert("메일 전송이 완료 되었습니다.")
+                }
+            }
+        }); 
+        } 
+        //이름 체크
+        $("#title,#email").keyup(function(){
+            var txt = $(this).val().length;
+            if(txt>=2) {
+                $(this).removeClass("alert");
+                $(this).next().fadeIn();
+            }
+        });
+        //메세지 체크
+        $("#msg").keyup(function(){
+            var txt = $(this).val().length;
+            if(txt>=5) {
+                $(this).removeClass("alert");
+                $(this).next().next().fadeIn();
+            }
+        });
+</script>
+</body>
+</html>
